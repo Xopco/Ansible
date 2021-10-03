@@ -1,30 +1,79 @@
 ---
-- name: install tomcat
+- name: install java related packages
   hosts: all
   become: yes
 
   tasks:
 
-  - name: Ensure tomcat package is present
+  - name: Ensure java related packages are present
     apt:
-      name: tomcat
+      name: "{{ packages }}"
       status: present
+    vars:
+      packages:
+        - openjdk-8-jdk
+        - tomcat9
 
   - name: Ensure tomcat service is started
     service:
-      name: tomcat
+      name: tomcat9
       status: started
 
-- name: install jdk
-  hosts: all
+- name: install maven
+  hosts: maven
   become: yes
 
   tasks:
 
-  - name: Ensure jdk package is present
+  - name: Ensure maven package is present
     apt:
-      name: default-jdk
-      status: present
+      name: maven
+      state: present
+
+  - name: Ensure maven service is started
+    service:
+      name: maven
+      status: started
+
+  - name: Download and pack java app
+    hosts: maven
+
+    tasks:
+
+  - name: Ensure git package is present
+    apt:
+      name: git
+      state: present
+      become: yes
+
+  - name: Ensure git service is started
+    service:
+      name: git
+      status: started
+
+  - name: Download java app
+    git:
+      repo: https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
+      dest: /home/xopco/
+      clone: yes
+
+  - name: pack java app
+    shell: mvn package "/home/xopco"
+
+  - name: copy java app on web server
+    hosts: prod
+
+    tasks:
+
+    - name: copy artifact to tomcat dest
+      copy:
+        src: "m1:/home/xopco/target/hello-1.0.war"
+        dest: /var/lib/tomcat9/hello-1.0.war"
+...
+
+
+
+
 
 
 
