@@ -19,7 +19,7 @@
       name: tomcat9
       status: started
 
-- name: install maven
+- name: install maven, download and pack java app
   hosts: maven
   become: yes
 
@@ -34,12 +34,6 @@
     service:
       name: maven
       status: started
-
-  - name: Download and pack java app
-    hosts: maven
-    become: yes
-
-    tasks:
 
   - name: Ensure git package is present
     apt:
