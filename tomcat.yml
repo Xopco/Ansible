@@ -15,5 +15,17 @@
       name: tomcat
       status: started
 
+- name: install jdk
+  hosts: all
+  become: yes
+
+  tasks:
+
+  - name: Ensure jdk package is present
+    apt:
+      name: default-jdk
+      status: present
+
+
 
 
