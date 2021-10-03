@@ -37,6 +37,7 @@
 
   - name: Download and pack java app
     hosts: maven
+    become: yes
 
     tasks:
 
@@ -44,7 +45,6 @@
     apt:
       name: git
       state: present
-      become: yes
 
   - name: Ensure git service is started
     service:
