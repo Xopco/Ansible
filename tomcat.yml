@@ -17,7 +17,7 @@
   - name: Ensure tomcat service is started
     service:
       name: tomcat9
-      status: started
+      state: started
 
 - name: install maven, download and pack java app
   hosts: maven
@@ -33,7 +33,7 @@
   - name: Ensure maven service is started
     service:
       name: maven
-      status: started
+      state: started
 
   - name: Ensure git package is present
     apt:
@@ -43,7 +43,7 @@
   - name: Ensure git service is started
     service:
       name: git
-      status: started
+      state: started
 
   - name: Download java app
     git:
