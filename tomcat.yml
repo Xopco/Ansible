@@ -58,8 +58,8 @@
 
   - name: copy artifact to web-server
     copy:
-      src: master:/tmp/hello-1.0.war
-      dest: m2:/var/lib/tomcat9/webapps
+      src: master@root:/tmp/hello-1.0.war
+      dest: m2@root:/var/lib/tomcat9/webapps
 ...
 
 
