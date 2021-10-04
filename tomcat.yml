@@ -48,8 +48,7 @@
   - name: Download java app
     git:
       repo: https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
-      dest: /home/xopco/
-      clone: yes
+      dest: /home/xopco/boxfuse-sample-java-war-hello
 
   - name: pack java app
     shell: mvn package "/home/xopco/boxfuse-sample-java-war-hello"
