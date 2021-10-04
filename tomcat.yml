@@ -8,7 +8,7 @@
   - name: Ensure java related packages are present
     apt:
       name: "{{ packages }}"
-      status: present
+      state: present
     vars:
       packages:
         - openjdk-8-jdk
