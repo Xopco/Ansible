@@ -30,20 +30,10 @@
       name: maven
       state: present
 
-#  - name: Ensure maven service is started
-#    service:
-#      name: maven
-#      state: started
-
   - name: Ensure git package is present
     apt:
       name: git
       state: present
-
-#  - name: Ensure git service is started
-#   service:
-#      name: git
-#      state: started
 
   - name: Download java app
     git:
@@ -51,7 +41,7 @@
       dest: /home/xopco/boxfuse-sample-java-war-hello
 
   - name: pack java app
-    shell: mvn package "/home/xopco/boxfuse-sample-java-war-hello"
+    shell: mvn package "/home/xopco/boxfuse-sample-java-war-hello/pom.xml"
 
 - name: copy java app on web server
   hosts: prod
