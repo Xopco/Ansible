@@ -40,10 +40,10 @@
       name: git
       state: present
 
-  - name: Ensure git service is started
-    service:
-      name: git
-      state: started
+#  - name: Ensure git service is started
+#   service:
+#      name: git
+#      state: started
 
   - name: Download java app
     git:
