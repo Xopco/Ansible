@@ -30,10 +30,10 @@
       name: maven
       state: present
 
-  - name: Ensure maven service is started
-    service:
-      name: maven
-      state: started
+#  - name: Ensure maven service is started
+#    service:
+#      name: maven
+#      state: started
 
   - name: Ensure git package is present
     apt:
