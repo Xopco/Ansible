@@ -53,8 +53,8 @@
 
   - name: copy artifact to master
     fetch:
-      src: maven:/home/xopco/boxfuse-sample-java-war-hello/target/hello-1.0.war
-      dest: localhost:/tmp/hello-1.0.war
+      src: /home/xopco/boxfuse-sample-java-war-hello/target/hello-1.0.war
+      dest: /tmp/hello-1.0.war
 
   - name: copy artifact to web-server
     copy:
