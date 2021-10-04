@@ -41,7 +41,9 @@
       dest: /home/xopco/boxfuse-sample-java-war-hello
 
   - name: pack java app
-    shell: mvn package "/home/xopco/boxfuse-sample-java-war-hello/pom.xml"
+    shell: mvn package
+    args:
+      chdir: /home/xopco/boxfuse-sample-java-war-hello
 
 - name: copy java app on web server
   hosts: prod
