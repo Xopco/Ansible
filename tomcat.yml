@@ -46,7 +46,7 @@
       chdir: /home/xopco/boxfuse-sample-java-war-hello
 
 - name: copy java app on web server
-  hosts: all
+  hosts: maven
   become: yes
 
   tasks:
@@ -56,10 +56,16 @@
       src: /home/xopco/boxfuse-sample-java-war-hello/target/hello-1.0.war
       dest: /tmp/hello-1.0.war
 
+- name: copy java app on web server
+  hosts: prod
+  become: yes
+
+  tasks:
+
   - name: copy artifact to web-server
     copy:
-      src: master@root:/tmp/hello-1.0.war
-      dest: m2@root:/var/lib/tomcat9/webapps
+      src: /tmp/hello-1.0.war
+      dest: /var/lib/tomcat9/webapps
 ...
 
 
