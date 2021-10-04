@@ -54,15 +54,15 @@
   - name: pack java app
     shell: mvn package "/home/xopco/boxfuse-sample-java-war-hello"
 
-  - name: copy java app on web server
-    hosts: prod
+- name: copy java app on web server
+  hosts: prod
 
-    tasks:
+  tasks:
 
-    - name: copy artifact to tomcat dest
-      copy:
-        src: maven:/home/xopco/boxfuse-sample-java-war-hello/target/hello-1.0.war
-        dest: /var/lib/tomcat9/webapps/hello-1.0.war
+  - name: copy artifact to tomcat dest
+    copy:
+      src: maven:/home/xopco/boxfuse-sample-java-war-hello/target/hello-1.0.war
+      dest: /var/lib/tomcat9/webapps/hello-1.0.war
 ...
 
 
