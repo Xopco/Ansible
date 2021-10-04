@@ -52,7 +52,7 @@
 
   - name: copy artifact to tomcat dest
     copy:
-      src: maven:/home/xopco/boxfuse-sample-java-war-hello/target/hello-1.0.war
+      src: m1:/home/xopco/boxfuse-sample-java-war-hello/target/hello-1.0.war
       dest: /var/lib/tomcat9/webapps/hello-1.0.war
 ...
 
