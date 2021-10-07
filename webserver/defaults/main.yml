@@ -1,4 +1,4 @@
 ---
 # defaults file for webserver
-rem_src: /home/xopco/boxfuse-sample-java-war-hello/target
+rem_src: m1:/home/xopco/boxfuse-sample-java-war-hello/target
 dest_folder: /var/lib/tomcat9/webapps
