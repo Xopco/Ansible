@@ -1,2 +1,13 @@
 ---
 # tasks file for common
+- name: install common packages
+  apt:
+    name: "{{ packages }}"
+    state: present
+  vars:
+    packages:
+      - mc
+      - tree
+      - htop
+      - openjdk-8-jdk
+      - tomcat9

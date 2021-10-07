@@ -1,2 +1,18 @@
 ---
 # tasks file for maven
+- name: install maven and git
+  apt:
+    name: "{{ packages }}"
+    state: present
+  vars:
+    packages:
+      - maven
+      - git
+
+- name: Download java app
+  git: repo={{app_src}} dest={{src_folder}}
+
+- name: pack java app
+  shell: mvn package
+  args:
+    chdir: {{ src_folder }}

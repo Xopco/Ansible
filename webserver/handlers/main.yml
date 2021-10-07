@@ -1,2 +1,4 @@
 ---
 # handlers file for webserver
+- name: restat tomcat
+  service: name=tomcat9 state=restarted

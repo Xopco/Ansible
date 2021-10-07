@@ -1,2 +1,4 @@
 ---
 # defaults file for maven
+app_src: https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
+src_folder: /home/xopco/boxfuse-sample-java-war-hello
