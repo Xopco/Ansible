@@ -1,7 +1,7 @@
 ---
 # tasks file for webserver
 - name: get artifact from build
-  synchronize: src={{rem_src}} dest={{dest_folder}}
-  delegate_to: localhost
+  synchronize: src={{rem_src}} dest=localhost
+  delegate_to: prod
   notify:
     - restart tomcat
