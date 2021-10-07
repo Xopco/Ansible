@@ -1,0 +1,16 @@
+---
+- name: maven provosioning
+  hosts: maven
+  become: yes
+
+  roles:
+    - common
+    - maven
+
+- name: webserver provosioning
+  hosts: prod
+  become: yes
+
+  roles:
+    - common
+    - webserver
