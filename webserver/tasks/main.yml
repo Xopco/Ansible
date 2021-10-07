@@ -1,7 +1,6 @@
 ---
 # tasks file for webserver
 - name: get artifact from build
-  mode: pull
   synchronize: src={{rem_src}}/hello-1.0.war dest={{dest_folder}}
   delegate_to: localhost
   notify:
