@@ -15,4 +15,4 @@
 - name: pack java app
   shell: mvn package
   args:
-    chdir: {{ src_folder }}
+    chdir: "{{ src_folder }}"
